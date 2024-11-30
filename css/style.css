@@ -1,173 +1,167 @@
 :root {
-  --primary-color: #1abc9c;
-  --secondary-color: #16a085;
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --highlight-color: #1abc9c;
+  --button-hover-color: #16a085;
+  --button-bg-color: #27ae60;
+  --footer-bg: #2c3e50;
+  --footer-text: #bdc3c7;
 }
+
 * {
-  /* Below is the standard CSS code one should add to get rid of default margins and padding which most of tge HTML elements have */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   user-select: none;
 }
+
 body {
-  position: relative;
-  min-height: 100vh;
-  text-align: center;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  align-items: stretch;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ecf0f1;
+  min-height: 100vh;
+  color: #2c3e50;
 }
 
-/* Title CSS */
+/* Title */
 .title {
   background-color: var(--primary-color);
-  text-align: center;
-  font-size: 1.2em;
-  padding-block: 0.5em;
-  color: #fff;
+  color: white;
+  font-size: 2.2em;
+  font-weight: 600;
+  padding: 1.2em;
   cursor: pointer;
+  transition: background-color 0.3s;
+  border-bottom: 2px solid var(--highlight-color);
 }
 
-/* Navbar CSS */
+.title:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.8em;
-  font-size: 16px;
-  min-height: 70px;
-  padding-block: 0.6em;
+  gap: 1.2em;
+  font-size: 1.2em;
+  padding: 1.2em;
   background-color: var(--secondary-color);
-  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.navbar a {
-  all: unset;
-  cursor: pointer;
-  color: #fff;
-  font-weight: bold;
-  padding: 8px 10px;
-  border-radius: 6px;
-  transition: 0.3s;
-  background-color: #1abc9c;
-}
-.navbar a:hover {
-  background-color: transparent;
-}
-.navbar #menu {
-  width: fit-content;
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 8px;
-  background-color: #1abc9c;
-  color: white;
-}
-.navbar > .icon {
-  display: none;
-}
-#menu,
-#random,
-#start {
-  cursor: pointer;
+  width: 100%;
 }
 
-/* Center css */
-.center {
-  margin: 0 auto;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; /* Added shadow to make page border free */
-  height: 420px;
-  width: 410px;
-  max-height: 731px;
+.navbar a,
+.navbar select {
+  padding: 12px 16px;
+  background-color: var(--highlight-color);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
+
+.navbar a:hover,
+.navbar select:hover {
+  background-color: var(--button-hover-color);
+}
+
+.navbar select {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  font-size: 1.1em;
+}
+
+/* Array */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 80%;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 2em;
+  border-radius: 8px;
+}
+
 .array {
   display: flex;
-  align-items: flex-start;
-  min-height: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
   height: 100%;
-  padding: 1rem;
-  flex-direction: row;
 }
+
 .cell {
-  display: flex;
-  align-items: flex-start;
-  flex: 0.5;
-  width: 0.000001%;
-  margin: 1px;
   background-color: #d6d6d6;
-  resize: horizontal;
-  position: relative;
-  transition: all 0.4s ease-in;
+  width: 15px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
+
 .cell.done {
   background-color: #9cec5b;
-  border-color: #9cec5b;
-  color: white;
-  transition: all 0.4s ease-out;
 }
+
 .cell.visited {
-  border-color: #6184d8;
   background-color: #6184d8;
-  color: white;
-  transition: 0.5s;
 }
+
 .cell.current {
-  border-color: #50c5b7;
   background-color: #50c5b7;
-  color: white;
-  transition: all 0.4s ease-out;
 }
+
 .cell.min {
   background-color: #ff1493;
-  border-color: #ff1493;
-  color: white;
-  transition: all 0.4s ease-out;
 }
 
-/* Footer CSS */
-.fa.fa-heart {
-  color: #eb2c13;
-}
+/* Footer */
 footer {
-  text-align: center;
-  font-size: 18px;
-  color: #2c3e50;
+  background-color: var(--footer-bg);
   padding: 1.6em;
-}
-.footer > p:nth-child(1) {
-  margin-bottom: 0.6em;
-}
-.link {
-  text-decoration: none;
-  font-weight: bold;
-  color: #ff5252;
-  font-size: 20px;
+  color: var(--footer-text);
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 3em;
 }
 
-@media screen and (max-width: 600px) {
-  .navbar {
-    gap: 0.4em;
-  }
-  .title {
-    font-size: 17px;
-  }
-  .navbar *,
-  .navbar a {
-    font-size: 14px;
-  }
-  .footer {
-    font-size: 18px;
-  }
-  a#random {
-    order: 4;
-  }
-  a.start {
-    order: 5;
-  }
+footer p {
+  margin: 0;
 }
-@media screen and (max-width: 550px) {
+
+footer p a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .title {
+    font-size: 1.8em;
+  }
+
+  .navbar a,
+  .navbar select {
+    font-size: 1em;
+  }
+
   .center {
     width: 95%;
   }
